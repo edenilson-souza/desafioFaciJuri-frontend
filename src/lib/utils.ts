@@ -6,4 +6,4 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export const notify = (message: string) => toast(message);
+export const notify = (message: string, options?: any) => toast(message, options ?? { type: "success" });

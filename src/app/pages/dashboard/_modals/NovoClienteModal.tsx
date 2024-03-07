@@ -61,7 +61,7 @@ export function NovoClienteModal({ isOpen, onClose }: any) {
 
             save(data);
         } catch (error: any) {
-            notify(error.message);
+            notify(error.message, { type: "error" });
         }
     };
 
