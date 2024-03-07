@@ -32,7 +32,13 @@ export function Dashboard() {
                 </div>
             </div>
             <ListarContas filters={filters}></ListarContas>
-            <NovoClienteModal isOpen={isOpen} onClose={closeModal} />
+            <NovoClienteModal
+                isOpen={isOpen}
+                onClose={() => {
+                    closeModal();
+                    setFilters({ ...setFilters });
+                }}
+            />
         </Layout>
     );
 }

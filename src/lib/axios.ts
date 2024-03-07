@@ -8,3 +8,8 @@ export const saveAccount = async (data: any) => {
     const response = await instance.post("/signup", data);
     return response;
 };
+
+export const getAllAccounts = async () => {
+    const response = await instance.get("/accounts/1/10");
+    return response;
+};

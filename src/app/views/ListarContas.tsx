@@ -1,44 +1,47 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/ui/button";
 import { DataTable } from "@/components/ui/dataTable";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { getAllAccounts } from "@/lib/axios";
+import { notify } from "@/lib/utils";
 
 type ListarContasProps = {
     filters: any;
 };
 
 export function ListarContas({ filters }: ListarContasProps) {
+    const [data, setData] = useState([]);
 
     const columns = {
-        nome: "Nome",
+        name: "Nome",
         email: "Email",
-        telefone: "Telefone",
+        phone: "Telefone",
         cordx: "Coordenada X",
         cordy: "Coordenada Y",
-        opcoes: (id: string) => <Opcoes id={id} editar={id => alert(id)} excluir={id => alert(id)} />
+        opcoes: (row: any) => <Opcoes id={row.accountId} editar={id => alert(id)} excluir={id => alert(id)} />
     };
 
-    const dados = [
-        {
-            id: "1",
-            nome: "João",
-            email: "joao@example.com",
-            telefone: "123456789",
-            cordx: "123456789",
-            cordy: "123456789"
-        },
-        { id: "2", nome: "Maria", email: "maria@example.com", telefone: "987654321", cordx: "123456789", cordy: "123456789" },
-        { id: "3", nome: "Carlos", email: "carlos@example.com", telefone: "456789123", cordx: "123456789", cordy: "123456789" }
-    ];
+    const getDataAccounts = async () => {
+        try {
+            const accounts = await getAllAccounts();
+            setData(accounts.data);
+        } catch (error: any) {
+            notify(error.message);
+        }
+    };
 
     useEffect(() => {
-        alert(JSON.stringify(filters));
+        getDataAccounts();
+    }, []);
+
+    useEffect(() => {
+        getDataAccounts();
     }, [filters]);
 
     return (
         <div className='flex flex-row h-auto m-10'>
             <div className='max-h-[500px] overflow-y-auto'>
-                <DataTable data={dados} columns={columns} />
+                <DataTable data={data} columns={columns} />
             </div>
         </div>
     );

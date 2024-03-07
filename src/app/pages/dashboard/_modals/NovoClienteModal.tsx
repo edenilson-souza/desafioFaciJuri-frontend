@@ -3,8 +3,8 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { saveAccount } from "@/lib/axios";
+import { notify } from "@/lib/utils";
 import { useState } from "react";
-import { toast } from "react-toastify";
 
 export function NovoClienteModal({ isOpen, onClose }: any) {
     const [nome, setNome] = useState("");
@@ -12,8 +12,6 @@ export function NovoClienteModal({ isOpen, onClose }: any) {
     const [telefone, setTelefone] = useState("");
     const [cordx, setCordx] = useState("");
     const [cordy, setCordy] = useState("");
-
-    const notify = (message: string) => toast(message);
 
     const handleChanges = (e: any) => {
         const { name, value } = e.target;
