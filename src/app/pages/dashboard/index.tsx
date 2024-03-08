@@ -4,19 +4,24 @@ import { useState } from "react";
 import { NovoClienteModal } from "@/app/pages/dashboard/_modals/NovoClienteModal";
 import { Filters } from "@/app/views/Filters";
 import { ListarContas } from "@/app/views/ListarContas";
+import { ViewRotas } from "./_modals/ViewRotas";
 
 export function Dashboard() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenCreate, setIsOpenCreate] = useState(false);
+    const [isOpenRotas, setIsOpenRotas] = useState(false);
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
+    const openModalCreate = () => setIsOpenCreate(true);
+    const closeModalCreate = () => setIsOpenCreate(false);
+
+    const openModalRotas = () => setIsOpenRotas(true);
+    const closeModalRotas = () => setIsOpenRotas(false);
 
     const [filters, setFilters] = useState({});
 
     const options = [
-        { value: "nome", label: "Nome" },
+        { value: "name", label: "Nome" },
         { value: "email", label: "Email" },
-        { value: "telefone", label: "Telefone" }
+        { value: "phone", label: "Telefone" }
     ];
 
     return (
@@ -26,17 +31,27 @@ export function Dashboard() {
                     <Filters setFilters={(e: any) => setFilters(e)} options={options} />
                 </div>
                 <div className='flex-shrink-0 h-20 flex justify-end items-center mt-4'>
-                    <Button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "} onClick={openModal}>
+                    <Button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "} onClick={openModalRotas}>
+                        Rotas
+                    </Button>
+                    <div className='m-4'></div>
+                    <Button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "} onClick={openModalCreate}>
                         Novo Cliente
                     </Button>
                 </div>
             </div>
             <ListarContas filters={filters}></ListarContas>
             <NovoClienteModal
-                isOpen={isOpen}
+                isOpen={isOpenCreate}
                 onClose={() => {
-                    closeModal();
+                    closeModalCreate();
                     setFilters({ ...setFilters });
+                }}
+            />
+            <ViewRotas
+                isOpen={isOpenRotas}
+                onClose={() => {
+                    closeModalRotas();
                 }}
             />
         </Layout>

@@ -5,6 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { deleteAccount, getAllAccounts } from "@/lib/axios";
 import { notify } from "@/lib/utils";
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { EditClienteModal } from "../pages/dashboard/_modals/EditClienteModal";
 
 type ListarContasProps = {
     filters: any;
@@ -12,6 +13,8 @@ type ListarContasProps = {
 
 export function ListarContas({ filters }: ListarContasProps) {
     const [data, setData] = useState([]);
+    const [isOpenEdit, setIsOpenEdit] = useState(false);
+    const [accountId, setAccountId] = useState("");
 
     const columns = {
         name: "Nome",
@@ -19,8 +22,14 @@ export function ListarContas({ filters }: ListarContasProps) {
         phone: "Telefone",
         cordx: "Coordenada X",
         cordy: "Coordenada Y",
-        opcoes: (row: any) => <Opcoes id={row.accountId} onDelete={() => getDataAccounts()} />
+        opcoes: (row: any) => <Opcoes id={row.accountId} onEdit={(id: string) => openModalEdit(id)} onDelete={() => getDataAccounts()} />
     };
+
+    const openModalEdit = (id: string) => {
+        setAccountId(id);
+        setIsOpenEdit(true);
+    };
+    const closeModalEdit = () => setIsOpenEdit(false);
 
     const getDataAccounts = async () => {
         try {
@@ -46,11 +55,20 @@ export function ListarContas({ filters }: ListarContasProps) {
             <div className='max-h-[500px] overflow-y-auto'>
                 <DataTable data={data} columns={columns} />
             </div>
+            <EditClienteModal
+                id={accountId}
+                isOpen={isOpenEdit}
+                onClose={() => {
+                    setAccountId("");
+                    getDataAccounts();
+                    closeModalEdit();
+                }}
+            />
         </div>
     );
 }
 
-function Opcoes({ id, onDelete }: { id: string; onDelete: () => void }) {
+function Opcoes({ id, onEdit, onDelete }: { id: string; onEdit: (id: string) => void; onDelete: () => void }) {
     const [showConfirm, setShowConfirm] = useState(false);
 
     const handleDelete = async () => {
@@ -66,7 +84,7 @@ function Opcoes({ id, onDelete }: { id: string; onDelete: () => void }) {
 
     return (
         <div className='flex justify-center items-center'>
-            <Button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2 flex flex-row items-center' onClick={() => alert(id)}>
+            <Button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2 flex flex-row items-center' onClick={() => onEdit(id)}>
                 Editar <FaEdit className='ml-2'></FaEdit>
             </Button>
             <Button

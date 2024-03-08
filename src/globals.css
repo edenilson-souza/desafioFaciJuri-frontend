@@ -25,3 +25,38 @@ body,
     width: 100vw;
     background-color: #f3f4f6;
 }
+
+.point-line-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.point-line-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.point-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+}
+
+.point-text {
+    font-size: 10px;
+}
