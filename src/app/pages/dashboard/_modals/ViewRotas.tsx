@@ -41,12 +41,12 @@ export function ViewRotas({ isOpen, onClose }: any) {
     return (
         <Dialog open={isOpen} onOpenChange={handleCancel}>
             <DialogTrigger />
-            <DialogContent className='max-w-5xl'>
+            <DialogContent className='max-w-12xl'>
                 <DialogHeader>
                     <DialogTitle>Rotas</DialogTitle>
                     <DialogClose />
                 </DialogHeader>
-                <DialogDescription>
+                <DialogDescription className={"m-10"}>
                     {points.length == 0 && <p>Não há rotas cadastradas</p>}
                     {points.length > 0 && (
                         <>

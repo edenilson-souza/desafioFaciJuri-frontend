@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableHeader, TableRow } from "@/components
 
 export function DataTable({ data, columns }: any) {
     return (
-        <Table className='table-auto'>
+        <Table className='table-fixed'>
             <TableHeader>
                 <TableRow>
                     {Object.keys(columns).map((column: any, index: any) => (

@@ -52,8 +52,9 @@ export function ListarContas({ filters }: ListarContasProps) {
 
     return (
         <div className='flex flex-row h-auto m-10'>
-            <div className='max-h-[500px] overflow-y-auto'>
+            <div className='max-h-[500px] overflow-y-auto justify-center items-center flex flex-col'>
                 <DataTable data={data} columns={columns} />
+                {data.length == 0 && <p className='mt-2'>Não há dados cadastrados</p>}
             </div>
             <EditClienteModal
                 id={accountId}
