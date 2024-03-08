@@ -27,7 +27,7 @@ npm install
 
 ## Rodando a aplicação
 
-##Compilação
+### Compilação
 
 Para compilar o código TypeScript, utilize o seguinte comando:
 
