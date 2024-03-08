@@ -30,9 +30,11 @@ export function NovoClienteModal({ isOpen, onClose }: any) {
                 setTelefone(formattedValue);
                 break;
             case "cordx":
+                if (value.length > 4) return;
                 setCordx(value);
                 break;
             case "cordy":
+                if (value.length > 4) return;
                 setCordy(value);
                 break;
             default:
