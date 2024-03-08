@@ -28,7 +28,7 @@ function Footer() {
     return (
         <footer className='bg-zinc-50 dark:bg-zinc-900 fixed bottom-0 left-0 w-full z-50'>
             <div className='container flex items-center justify-between h-12 mx-auto'>
-                <div className='flex items-center'>Copyright - {new Date().getFullYear()}</div>
+                <div className='flex items-center'>Edenilson Souza - {new Date().getFullYear()}</div>
                 <div className='flex items-center'></div>
                 <div className='flex items-center'>
                     <a href='https://www.linkedin.com/in/edenilson-souza' target='_blank' rel='noopener noreferrer' className='flex flex-row'>
