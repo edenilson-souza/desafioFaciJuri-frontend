@@ -85,7 +85,10 @@ function Opcoes({ id, onEdit, onDelete }: { id: string; onEdit: (id: string) => 
 
     return (
         <div className='flex justify-center items-center'>
-            <Button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2 flex flex-row items-center' onClick={() => onEdit(id)}>
+            <Button
+                className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-2 flex flex-row items-center'
+                onClick={() => onEdit(id)}
+            >
                 Editar <FaEdit className='ml-2'></FaEdit>
             </Button>
             <Button

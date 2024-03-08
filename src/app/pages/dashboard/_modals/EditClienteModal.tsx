@@ -117,7 +117,7 @@ export function EditClienteModal({ id, isOpen, onClose }: any) {
                 <DialogFooter>
                     <div className='w-full flex justify-between items-center '>
                         <button onClick={handleCancel}>Fechar</button>
-                        <Button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "} onClick={() => handleUpdate()}>
+                        <Button className={"bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"} onClick={() => handleUpdate()}>
                             Editar
                         </Button>
                     </div>
