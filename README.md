@@ -10,7 +10,7 @@ solução robusta e de qualidade.
 Este projeto está utilizando as seguintes tecnologias:
 
 -   [React](https://react.dev/)
--   [Vitest](https://vitest.dev/)
+-   [Vite](https://vitejs.dev/)
 -   [Node](https://nodejs.org/en)
 -   [Tailwind](https://tailwindcss.com/)
 -   [Axios](https://axios-http.com/)
