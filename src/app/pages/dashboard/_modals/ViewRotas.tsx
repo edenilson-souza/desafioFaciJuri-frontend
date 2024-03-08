@@ -1,7 +1,7 @@
 import { DataTable } from "@/components/ui/dataTable";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-import { getRotas } from "@/lib/axios";
+import { getRotas } from "@/lib/gateway";
 import { notify } from "@/lib/utils";
 import { useEffect, useState } from "react";
 

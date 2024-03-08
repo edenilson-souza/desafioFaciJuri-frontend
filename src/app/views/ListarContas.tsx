@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "@/components/ui/button";
 import { DataTable } from "@/components/ui/dataTable";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { deleteAccount, getAllAccounts } from "@/lib/axios";
+import { deleteAccount, getAllAccounts } from "@/lib/gateway";
 import { notify } from "@/lib/utils";
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { EditClienteModal } from "../pages/dashboard/_modals/EditClienteModal";
