@@ -9,13 +9,12 @@ solução robusta e de qualidade.
 
 Este projeto está utilizando as seguintes tecnologias:
 
--   [React](https://react.dev/)
--   [Vite](https://vitejs.dev/)
--   [Node](https://nodejs.org/en)
--   [Tailwind](https://tailwindcss.com/)
--   [Axios](https://axios-http.com/)
--   [TypeScript](https://www.typescriptlang.org/)
--   [React Icons](https://react-icons.github.io/react-icons/)
+-   [React](https://react.dev/) (v18.2.0)
+-   [Vite](https://vitejs.dev/) (v5.0.8)
+-   [Node](https://nodejs.org/en) (v18.18.0)
+-   [Tailwind](https://www.npmjs.com/package/tailwindcss) (v3.4.1)
+-   [TypeScript](https://www.typescriptlang.org/) (v5.2.2)
+-   [React Icons](https://react-icons.github.io/react-icons/) (v5.0.1)
 
 ## Instalação
 
