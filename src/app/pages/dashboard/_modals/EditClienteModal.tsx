@@ -71,7 +71,7 @@ export function EditClienteModal({ id, isOpen, onClose }: any) {
             notify("Cliente atualizado com sucesso!");
             handleCancel();
         } catch (error: any) {
-            notify(error.response.data.message);
+            notify(error.response.data.message, { type: "error" });
         }
     };
 

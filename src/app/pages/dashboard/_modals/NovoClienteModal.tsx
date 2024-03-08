@@ -71,7 +71,7 @@ export function NovoClienteModal({ isOpen, onClose }: any) {
             notify("Cliente cadastrado com sucesso!");
             handleCancel();
         } catch (error: any) {
-            notify(error.response.data.message);
+            notify(error.response.data.message, { type: "error" });
         }
     };
 
